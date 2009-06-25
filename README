@@ -1,2 +1,5 @@
-This project is just a git repository for the accordion.js project from http://stickmanlabs.com/accordion/
+This project is just a git repository for tracking ongoing updates to the accordion.js project from http://stickmanlabs.com/accordion/
 
+Current status:
+
+Updated to use Prototype 1.6 and Scriptaculous 1.8 by using code from http://snipplr.com/view.php?codeview&id=5502
