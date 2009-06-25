@@ -1,3 +1,8 @@
+/*
+Updates to accorion.js v2.0
+Updated to use prototype 1.6 and scriptaculous 1.8
+Inital code update from http://snipplr.com/view.php?codeview&id=5502
+*/
 // accordion.js v2.0
 //
 // Copyright (c) 2007 stickmanlabs
@@ -62,13 +67,13 @@ accordion.prototype = {
 			}
 			
 			if (this.options.direction == 'horizontal') {
-				var options = $H({width: '0px'});
+				var options = {width: '0px', display:'none'};
 			} else {
-				var options = $H({height: '0px'});			
+				var options = {height: '0px', display:'none'};
 			}
-			options.merge({display: 'none'});			
+//			options.merge({display: 'none'});			
 			
-			this.currentAccordion = $(accordion.next(0)).setStyle(options);			
+			this.currentAccordion = $(accordion.next(0)).setStyle(options);
 		}.bind(this));
 	},
 	
@@ -132,11 +137,11 @@ accordion.prototype = {
 				this.animating = false;
 			}.bind(this)
 		});    
-    options.merge(this.scaling);
+//    options.merge(this.scaling);
 
     this.showAccordion.previous(0).removeClassName(this.options.classNames.toggleActive);
     
-		new Effect.Scale(this.showAccordion, 0, options);
+		new Effect.Scale(this.showAccordion, 0, options.update(this.scaling).toObject());
 	},
 
   //
@@ -156,7 +161,7 @@ accordion.prototype = {
 		options.merge(this.scaling);
 		
 		this.effects.push(
-			new Effect.Scale(this.currentAccordion, 100, options)
+			new Effect.Scale(this.currentAccordion, 100, options.update(this.scaling).toObject())
 		);
 
 		if (this.showAccordion) {
@@ -170,7 +175,7 @@ accordion.prototype = {
 			options.merge(this.scaling);
 			
 			this.effects.push(
-				new Effect.Scale(this.showAccordion, 0, options)
+				new Effect.Scale(this.showAccordion, 0, options.update(this.scaling).toObject())
 			);				
 		}
 		
@@ -198,4 +203,3 @@ accordion.prototype = {
 		});
 	}
 }
-	
