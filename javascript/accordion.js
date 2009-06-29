@@ -67,9 +67,9 @@ accordion.prototype = {
 			}
 			
 			if (this.options.direction == 'horizontal') {
-				var options = {width: '0px', display:'none'};
+				var options = {width: '1px', display:'none'};
 			} else {
-				var options = {height: '0px', display:'none'};
+				var options = {height: '1px', display:'none'};
 			}
 //			options.merge({display: 'none'});			
 			
